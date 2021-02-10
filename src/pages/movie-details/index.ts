@@ -1,1 +1,1 @@
-export * from "./list-movies.page"
+export * from "./movie-details.page"

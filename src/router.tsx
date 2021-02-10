@@ -6,7 +6,7 @@ export function Routers() {
     <BrowserRouter>
       <Switch>
         <Route path="/" exact component={SearchMovies} />
-        <Route path="/movie-detail/:id" component={DetailMovies} />
+        <Route path="/movie-detail/" component={DetailMovies} />
       </Switch>
     </BrowserRouter>
   );
