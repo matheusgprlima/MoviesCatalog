@@ -1,23 +1,24 @@
 import styled from "@emotion/styled";
-
+import { Link } from "react-router-dom";
 export const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
-  background: linear-gradient(to bottom left, #a0e7e5, #fa26a0);
+  background: url(assets/img/future.jpg);
+  overflow: auto;
 `;
 
-export const SearchContainer = styled.div`
+export const SearchContainer = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  width: 400px;
-  height: 400px;
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
+  width: 30%;
+  height: 40%;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(12px);
   border-radius: 10px;
   border-left: 1px solid rgba(255, 255, 255, 0.3);
@@ -26,28 +27,38 @@ export const SearchContainer = styled.div`
 `;
 
 export const InputStyled = styled.input`
-  width: 370px;
-  height: 51px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  width: 70%;
+  height: 13%;
+  background: transparent;
+  /* backdrop-filter: blur(5px); */
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: #ffffff;
   &:focus {
     outline: none;
   }
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
 `;
 
-export const ButtonStyled = styled.div`
+export const ButtonStyled = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 20%;
   padding: 12px 50px 13px;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 45px;
   color: #ffffff;
   cursor: pointer;
+  border: none;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
 `;
 
 export const CardContainer = styled.div`
@@ -55,8 +66,10 @@ export const CardContainer = styled.div`
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
-  height: auto;
+  max-width: 100%;
+  min-width: 30%;
   align-items: center;
+  margin: 50px 0 50px 0;
 `;
 
 export const CardContent = styled.div`
@@ -72,6 +85,7 @@ export const CardContent = styled.div`
 export const CardImg = styled.img`
   width: 100%;
   height: 100%;
+  margin: 10px 0 20px 0;
 `;
 export const CardBottom = styled.div`
   position: absolute;
@@ -79,8 +93,9 @@ export const CardBottom = styled.div`
   bottom: 0;
   min-height: 20%;
 `;
-export const CardTitle = styled.h2`
-  font-size: 12px;
+export const CardTitle = styled(Link)`
+  font-size: 20px;
   color: #ffffff;
+  text-decoration: none;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 `;
