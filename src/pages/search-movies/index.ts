@@ -1,1 +1,1 @@
-export * from "./search-movies.page";
+export { default as SearchMovies } from "./search-movies.container";

@@ -27,10 +27,10 @@ export interface IMovie {
   totalSeasons: string;
   Response: string;
 }
-export type MovieState = {
-  movie: IMovie[];
+export type MoviesState = {
+  movies: IMovie[];
 };
-export type MovieAction = {
+export type MoviesAction = {
   type: string;
   payload: any;
 };

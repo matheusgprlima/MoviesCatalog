@@ -1,15 +1,15 @@
-import { IMovie, MovieState } from "../../../type";
+import { IMovie } from "../../../type";
 
-const initialState: MovieState = { movie: [] };
+const initialState: IMovie[] = [];
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default (
-  state: MovieState = initialState,
-  action: { type: string; payload: IMovie[] }
+  state = initialState,
+  action: { type: string; payload: any }
 ) => {
   switch (action.type) {
-    case "SEARCH_MOVIES":
-      return (state.movie = action.payload);
+    case "UPDATE_MOVIES":
+      return action.payload;
     default:
       return state;
   }

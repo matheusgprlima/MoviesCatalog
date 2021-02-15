@@ -9,16 +9,16 @@ import {
 } from "./search-movies.styled";
 
 import { MovieCard } from "../../components/movie-card.component";
+import { IMovie } from "../../type";
 type SearchMoviesProps = {
-  movies: any[];
+  movies: IMovie[];
   searchMovies(searchTerm: string, year: string): void;
 };
 export const SearchMovies = ({ movies, searchMovies }: SearchMoviesProps) => {
+  console.log(movies);
   const [year, setYear] = useState("");
 
   const [title, setTitle] = useState("");
-
-  
 
   const handleYearChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.replace(/\D/g, "");
@@ -51,7 +51,7 @@ export const SearchMovies = ({ movies, searchMovies }: SearchMoviesProps) => {
         <ButtonStyled type="submit">Buscar</ButtonStyled>
       </SearchContainer>
       <CardContainer>
-        {movies &&
+        {movies.length &&
           movies.map((movie: any) => {
             return <MovieCard key={movie.imdbID} movie={movie} />;
           })}

@@ -1,14 +1,16 @@
 import { omdbApi } from "../../../services/omdbApi";
 
 export const fetchMovies = (searchTitle: string, year: string) => {
-  omdbApi
+  return omdbApi
     .get("/", {
       params: { s: searchTitle, y: year, type: "movie" },
     })
-    .then((response) => response.data);
+    .then((response) => response.data.Search);
 };
 
 export const searchMovies = (searchTitle: string, year: string) => {
-  const request = fetchMovies(searchTitle, year);
-  return { type: "SEARCH_MOVIES", payload: request };
+  return async (dispatch: any) => {
+    const movies = await fetchMovies(searchTitle, year);
+    dispatch({ type: "UPDATE_MOVIES", payload: movies });
+  };
 };
