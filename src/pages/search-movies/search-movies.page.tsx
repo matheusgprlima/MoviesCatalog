@@ -1,48 +1,37 @@
 import React, { useState } from "react";
-import { omdbApi } from "../../services/omdbApi";
-import data from "./data.json";
+
 import {
   ButtonStyled,
-  CardBottom,
   CardContainer,
-  CardContent,
-  CardImg,
-  CardTitle,
   InputStyled,
   MainContainer,
   SearchContainer,
 } from "./search-movies.styled";
 
-export function SearchMovies() {
+import { MovieCard } from "../../components/movie-card.component";
+type SearchMoviesProps = {
+  movies: any[];
+  searchMovies(searchTerm: string, year: string): void;
+};
+export const SearchMovies = ({ movies, searchMovies }: SearchMoviesProps) => {
   const [year, setYear] = useState("");
 
   const [title, setTitle] = useState("");
 
-  const [movieData, setMovieData] = useState([]);
+  
 
-  const handleChange = (e: any) => {
+  const handleYearChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.replace(/\D/g, "");
     setYear(value);
   };
 
-  const handleTitleChange = (e: any) => {
+  const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
   };
 
-  const handleSubmit = (event: any) => {
-    event.preventDefault();
-    omdbApi
-      .get("/", { params: { s: title, type: "movie" } })
-      .then((resp) => {
-        if (resp.data.Search) {
-          setMovieData(resp.data.Search);
-        } else {
-          alert(resp.data.Error);
-        }
-      })
-      .catch((err) => {
-        throw new Error(err);
-      });
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    searchMovies(title, year);
   };
   return (
     <MainContainer>
@@ -57,24 +46,16 @@ export function SearchMovies() {
           value={year}
           inputMode="numeric"
           maxLength={4}
-          onChange={handleChange}
+          onChange={handleYearChange}
         />
         <ButtonStyled type="submit">Buscar</ButtonStyled>
       </SearchContainer>
       <CardContainer>
-        {movieData.map((item: any) => {
-          return (
-            <CardContent>
-              <CardImg src={item.Poster} />
-              <CardBottom>
-                <CardTitle to={`/movie-detail/${data[1].imdbID}`}>
-                  {item.Title}
-                </CardTitle>
-              </CardBottom>
-            </CardContent>
-          );
-        })}
+        {movies &&
+          movies.map((movie: any) => {
+            return <MovieCard key={movie.imdbID} movie={movie} />;
+          })}
       </CardContainer>
     </MainContainer>
   );
-}
+};
