@@ -30,26 +30,11 @@ export interface IMovie {
   Response: string;
 }
 export type MovieState = {
-<<<<<<< HEAD
-=======
-  status?: status;
->>>>>>> feature/pages-redesign
   movie: IMovie[];
 };
 export type MovieAction = {
   type: string;
-<<<<<<< HEAD
   payload: any;
 };
 
-=======
-  payload: { searchTerm: string; year: string };
-};
-
-export type status = {
-  loading: string;
-  success: string;
-  fail: string;
-};
->>>>>>> feature/pages-redesign
 type DispachType = (action: MovieAction) => void;
