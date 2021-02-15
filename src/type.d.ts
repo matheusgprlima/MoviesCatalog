@@ -1,5 +1,3 @@
-import { AxiosRequestConfig } from "axios";
-
 export interface IMovie {
   Title: string;
   Year: string;
