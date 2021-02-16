@@ -6,7 +6,7 @@ interface IContainerProps {
 export const Container = styled.div<IContainerProps>`
   display: flex;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   justify-content: center;
   align-items: center;
   background: ${(props) =>
@@ -19,7 +19,7 @@ export const Container = styled.div<IContainerProps>`
 `;
 export const ContainerBlur = styled.div`
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   backdrop-filter: blur(20px);
   background: rgba(0, 0, 0, 0.3);
 `;

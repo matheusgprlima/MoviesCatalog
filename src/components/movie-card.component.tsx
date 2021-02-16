@@ -7,7 +7,6 @@ import {
 } from "../pages/search-movies/search-movies.styled";
 
 export const MovieCard = ({ movie }: any) => {
-  console.log("novo" + movie)
   return (
     <CardContent>
       <CardImg src={movie.Poster} />

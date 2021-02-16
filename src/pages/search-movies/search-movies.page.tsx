@@ -15,7 +15,6 @@ type SearchMoviesProps = {
   searchMovies(searchTerm: string, year: string): void;
 };
 export const SearchMovies = ({ movies, searchMovies }: SearchMoviesProps) => {
-  console.log(movies);
   const [year, setYear] = useState("");
 
   const [title, setTitle] = useState("");
@@ -52,7 +51,7 @@ export const SearchMovies = ({ movies, searchMovies }: SearchMoviesProps) => {
       </SearchContainer>
       <CardContainer>
         {movies.length &&
-          movies.map((movie: any) => {
+          movies.map((movie: IMovie) => {
             return <MovieCard key={movie.imdbID} movie={movie} />;
           })}
       </CardContainer>
