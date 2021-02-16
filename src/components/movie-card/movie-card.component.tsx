@@ -25,9 +25,7 @@ export const MovieCard = ({ movie }: any) => {
     <CardContent to={`/movie-detail/${movie.imdbID}`}>
       <CardImg src={movie.Poster} />
       <CardBottom>
-        <CardTitle to={`/movie-detail/${movie.imdbID}`}>
-          {movie.Title}
-        </CardTitle>
+        <CardTitle>{movie.Title}</CardTitle>
         <StarRatingStyled name="raiting" starCount={5} value={rate / 2} />
       </CardBottom>
     </CardContent>

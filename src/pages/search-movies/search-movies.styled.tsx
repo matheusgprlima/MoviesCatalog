@@ -74,7 +74,6 @@ export const SortButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 70px;
   height: 50px;
   margin: 30px 0 0 0;
   padding: 12px 50px 13px;
@@ -89,4 +88,8 @@ export const SortButton = styled.div`
   &:hover {
     background: rgba(255, 255, 255, 0.2);
   }
+`;
+export const Label = styled.label`
+  font-size: 16px;
+  color: #ffffff;
 `;
