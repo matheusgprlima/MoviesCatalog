@@ -27,7 +27,7 @@ export const SearchContainer = styled.form`
 
 export const InputStyled = styled.input`
   width: 70%;
-  height: 13%;
+  height: 100%;
   background: transparent;
   /* backdrop-filter: blur(5px); */
   border-radius: 20px;
@@ -90,6 +90,11 @@ export const SortButton = styled.div`
   }
 `;
 export const Label = styled.label`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: 16px;
   color: #ffffff;
+  margin: 0 15px;
 `;
+export const ContainerLabel = styled.div``;

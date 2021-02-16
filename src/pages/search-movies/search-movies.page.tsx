@@ -4,6 +4,7 @@ import {
   ButtonStyled,
   CardContainer,
   InputStyled,
+  Label,
   MainContainer,
   SearchContainer,
   SortButton,
@@ -54,18 +55,24 @@ export const SearchMovies = ({ movies, searchMovies }: SearchMoviesProps) => {
   return (
     <MainContainer>
       <SearchContainer onSubmit={handleSubmit}>
-        <InputStyled
-          type="text"
-          value={title}
-          onChange={handleTitleChange}
-          maxLength={35}
-        />
-        <InputStyled
-          value={year}
-          inputMode="numeric"
-          maxLength={4}
-          onChange={handleYearChange}
-        />
+        <Label>
+          Titulo:{" "}
+          <InputStyled
+            type="text"
+            value={title}
+            onChange={handleTitleChange}
+            maxLength={35}
+          />
+        </Label>
+        <Label>
+          Ano:{" "}
+          <InputStyled
+            value={year}
+            inputMode="numeric"
+            maxLength={4}
+            onChange={handleYearChange}
+          />
+        </Label>
         <ButtonStyled type="submit">Buscar</ButtonStyled>
       </SearchContainer>
       {movieOrder.length > 0 && (

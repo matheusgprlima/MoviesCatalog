@@ -13,7 +13,6 @@ import {
   DetailsParagraph,
   StarRatingStyled,
   ImbdContainer,
-  FailMessage,
 } from "./movie-details.styled";
 
 export function DetailMovies({ movie }: any) {
@@ -51,8 +50,6 @@ export function DetailMovies({ movie }: any) {
       </ContainerBlur>
     </Container>
   ) : (
-    <FailCover>
-      <FailMessage>Alguem Error Ocorreu, desculpe o transtorno :( </FailMessage>
-    </FailCover>
+    <FailCover></FailCover>
   );
 }
