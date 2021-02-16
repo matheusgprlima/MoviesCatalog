@@ -4,6 +4,7 @@ import {
   ButtonStyled,
   CardContainer,
   InputStyled,
+  Label,
   MainContainer,
   SearchContainer,
   SortButton,
@@ -21,11 +22,11 @@ export const SearchMovies = ({ movies, searchMovies }: SearchMoviesProps) => {
 
   const [title, setTitle] = useState("");
 
-  const [movieOrdered, setMovieOrdered] = useState(movies);
+  const [movieOrder, setMovieOrder] = useState(movies);
 
   useEffect(() => {
     const moviesOrdered = orderBy(movies, ["Title"], ["asc"]);
-    setMovieOrdered(moviesOrdered);
+    setMovieOrder(moviesOrdered);
   }, [movies]);
 
   const handleYearChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,7 +35,7 @@ export const SearchMovies = ({ movies, searchMovies }: SearchMoviesProps) => {
   };
 
   const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value.replace(/[^\w\s]/gi, "");
+    const value = e.target.value.replace(/[^a-zA-Z ]/g, "");
     setTitle(value);
   };
 
@@ -48,32 +49,38 @@ export const SearchMovies = ({ movies, searchMovies }: SearchMoviesProps) => {
 
   const movieOrderBy = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const moviesOrdered = orderBy(movies, ["Title"], ["desc"]);
-    setMovieOrdered(moviesOrdered);
+    setMovieOrder(moviesOrdered);
   };
 
   return (
     <MainContainer>
       <SearchContainer onSubmit={handleSubmit}>
-        <InputStyled
-          type="text"
-          value={title}
-          onChange={handleTitleChange}
-          maxLength={35}
-        />
-        <InputStyled
-          value={year}
-          inputMode="numeric"
-          maxLength={4}
-          onChange={handleYearChange}
-        />
+        <Label>
+          Titulo:{" "}
+          <InputStyled
+            type="text"
+            value={title}
+            onChange={handleTitleChange}
+            maxLength={35}
+          />
+        </Label>
+        <Label>
+          Ano:{" "}
+          <InputStyled
+            value={year}
+            inputMode="numeric"
+            maxLength={4}
+            onChange={handleYearChange}
+          />
+        </Label>
         <ButtonStyled type="submit">Buscar</ButtonStyled>
       </SearchContainer>
-      {movieOrdered.length > 0 && (
+      {movieOrder.length > 0 && (
         <SortButton onClick={movieOrderBy}>Descending Order</SortButton>
       )}
       <CardContainer>
-        {movieOrdered.length > 0 &&
-          movieOrdered.map((movie: IMovie) => {
+        {movieOrder.length > 0 &&
+          movieOrder.map((movie: IMovie) => {
             return <MovieCard key={movie.imdbID} movie={movie} />;
           })}
       </CardContainer>

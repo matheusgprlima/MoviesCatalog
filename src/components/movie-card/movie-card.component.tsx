@@ -11,7 +11,6 @@ import {
 
 export const MovieCard = ({ movie }: any) => {
   const [movieProps, setMovieProps] = useState(movie);
-
   useEffect(() => {
     omdbApi
       .get("/", {
