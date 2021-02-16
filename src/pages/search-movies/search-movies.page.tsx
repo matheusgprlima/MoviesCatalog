@@ -8,7 +8,7 @@ import {
   SearchContainer,
 } from "./search-movies.styled";
 
-import { MovieCard } from "../../components/card/movie-card.component";
+import { MovieCard } from "../../components/movie-card/movie-card.component";
 import { IMovie } from "../../type";
 type SearchMoviesProps = {
   movies: IMovie[];
@@ -25,16 +25,20 @@ export const SearchMovies = ({ movies, searchMovies }: SearchMoviesProps) => {
   };
 
   const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setTitle(e.target.value);
+    const value = e.target.value.replace(/[^\w\s]/gi, "");
+    setTitle(value);
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    searchMovies(title, year);
+    if (title.length > 0 && year.length > 0) searchMovies(title, year);
+    if (title.length > 0) return searchMovies(title, year);
+    if (year.length > 0 && title.length < 0) return;
+    return;
   };
   return (
     <MainContainer>
-      <SearchContainer onSubmit={handleSubmit}>
+      <SearchContainer onSubmit={(e) => handleSubmit(e)}>
         <InputStyled
           type="text"
           value={title}

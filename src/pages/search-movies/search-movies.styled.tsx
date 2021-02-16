@@ -70,3 +70,23 @@ export const CardContainer = styled.div`
   align-items: center;
   margin: 50px auto;
 `;
+export const SortButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 50px;
+  margin: 30px 0 0 0;
+  padding: 12px 50px 13px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 45px;
+  color: #ffffff;
+  cursor: pointer;
+  border: none;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+`;

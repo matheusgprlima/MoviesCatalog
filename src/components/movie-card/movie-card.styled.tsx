@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 
-export const CardContent = styled.div`
+export const CardContent = styled(Link)`
   position: relative;
   width: 230px;
   height: 350px;
@@ -12,9 +12,13 @@ export const CardImg = styled.img`
   width: 100%;
   height: 100%;
   backdrop-filter: blur(20px);
+  border-radius: 10px;
   background: rgba(0, 0, 0, 0.8);
   margin: 10px 0 20px 0;
   opacity: 0.7;
+  &:hover {
+    opacity: 1;
+  }
 `;
 export const CardBottom = styled.div`
   position: absolute;
