@@ -17,8 +17,6 @@ type SearchMoviesProps = {
   searchMovies(searchTerm: string, year: string): void;
 };
 export const SearchMovies = ({ movies, searchMovies }: SearchMoviesProps) => {
-  console.log(movies);
-
   const [year, setYear] = useState("");
 
   const [title, setTitle] = useState("");
@@ -70,7 +68,9 @@ export const SearchMovies = ({ movies, searchMovies }: SearchMoviesProps) => {
         />
         <ButtonStyled type="submit">Buscar</ButtonStyled>
       </SearchContainer>
-      <SortButton onClick={movieOrderBy}>Descending Order</SortButton>
+      {movieOrdered.length > 0 && (
+        <SortButton onClick={movieOrderBy}>Descending Order</SortButton>
+      )}
       <CardContainer>
         {movieOrdered.length > 0 &&
           movieOrdered.map((movie: IMovie) => {
