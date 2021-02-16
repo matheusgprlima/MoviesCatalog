@@ -10,6 +10,8 @@ export default (
   switch (action.type) {
     case "UPDATE_MOVIES":
       return action.payload;
+    case "NO_MOVIES":
+      return state;
     default:
       return state;
   }

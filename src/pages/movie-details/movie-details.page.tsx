@@ -10,6 +10,7 @@ import {
   DetailsParagraph,
   StarRatingStyled,
 } from "./movie-details.styled";
+
 export function DetailMovies({ movie }: any) {
   const [movieProps, setMovieProps] = useState(movie);
 
@@ -19,6 +20,7 @@ export function DetailMovies({ movie }: any) {
         params: { i: movie.imdbID, type: "movie" },
       })
       .then((response) => setMovieProps(response.data));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const rating = Number(movieProps.imdbRating);
