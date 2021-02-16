@@ -6,10 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow: none;
-}
-#root {
-  height: 100vh;
-  width:100vw;
-  overflow-y: auto;
+  background: linear-gradient( 
+    0deg
+    , #370617 -47% ,#000000 );
 }

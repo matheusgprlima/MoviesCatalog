@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import { omdbApi } from "../../services/omdbApi";
 import {
   CardPoster,
   Container,
@@ -8,23 +10,27 @@ import {
   DetailsParagraph,
   StarRatingStyled,
 } from "./movie-details.styled";
-import data from "../search-movies/data.json";
+export function DetailMovies({ movie }: any) {
+  const [movieProps, setMovieProps] = useState(movie);
 
-export function DetailMovies({ title, year }: any) {
-  const dataInfo = data.find(
-    (value) => value.Title === title && value.Year === year
-  );
-  const img = data[0].Poster;
-  const rating = Number(data[0].imdbRating);
+  useEffect(() => {
+    omdbApi
+      .get("/", {
+        params: { i: movie.imdbID, type: "movie" },
+      })
+      .then((response) => setMovieProps(response.data));
+  }, []);
+
+  const rating = Number(movieProps.imdbRating);
   return (
-    <Container background={img}>
+    <Container background={movieProps.Poster}>
       <ContainerBlur>
         <InfoContainer>
-          <CardPoster src={img} />
+          <CardPoster src={movieProps.Poster} />
           <ContentContainer>
-            <MovieTitle>{data[0].Title}</MovieTitle>
+            <MovieTitle>{movieProps.Title}</MovieTitle>
             <StarRatingStyled name="raiting" starCount={5} value={rating / 2} />
-            <DetailsParagraph>{data[0].Plot}</DetailsParagraph>
+            <DetailsParagraph>{movieProps.Plot}</DetailsParagraph>
           </ContentContainer>
         </InfoContainer>
       </ContainerBlur>

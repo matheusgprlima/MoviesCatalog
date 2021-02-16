@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { DetailMovies } from "./pages/movie-details";
 import { SearchMovies } from "./pages/search-movies";
-export function Routers() {
+export function Router() {
   return (
     <BrowserRouter>
       <Switch>
