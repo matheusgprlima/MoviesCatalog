@@ -30,8 +30,8 @@ export const InfoContainer = styled.div`
   padding: 0 180px;
 `;
 export const CardPoster = styled.img`
-  width: 200px;
-  height: 250px;
+  width: 400px;
+  height: 450px;
   border-radius: 10px;
 `;
 export const ContentContainer = styled.div`
@@ -47,6 +47,7 @@ export const MovieTitle = styled.h2`
 `;
 export const DetailsParagraph = styled.div`
   color: #ffffff;
+  font-size: 26px;
   line-height: 1.2em;
   max-width: 55%;
 `;
@@ -54,6 +55,7 @@ export const StarRatingStyled = styled(StarRating)`
   display: flex !important;
   flex-direction: row-reverse;
   justify-content: flex-end;
+  font-size: 30px;
 `;
 export const MovieYear = styled.p`
   color: #ffffff;

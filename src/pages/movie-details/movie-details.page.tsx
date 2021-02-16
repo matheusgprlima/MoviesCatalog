@@ -12,7 +12,7 @@ import {
 } from "./movie-details.styled";
 export function DetailMovies({ movie }: any) {
   const [movieProps, setMovieProps] = useState(movie);
-  console.log(movie);
+
   useEffect(() => {
     omdbApi
       .get("/", {

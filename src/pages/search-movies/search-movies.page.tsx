@@ -8,7 +8,7 @@ import {
   SearchContainer,
 } from "./search-movies.styled";
 
-import { MovieCard } from "../../components/movie-card.component";
+import { MovieCard } from "../../components/card/movie-card.component";
 import { IMovie } from "../../type";
 type SearchMoviesProps = {
   movies: IMovie[];

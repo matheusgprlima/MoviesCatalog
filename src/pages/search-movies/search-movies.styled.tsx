@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { Link } from "react-router-dom";
 export const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -62,7 +61,6 @@ export const ButtonStyled = styled.button`
     background: rgba(255, 255, 255, 0.2);
   }
 `;
-
 export const CardContainer = styled.div`
   display: inline-flex;
   flex-direction: row;
@@ -71,31 +69,4 @@ export const CardContainer = styled.div`
   width: 100%;
   align-items: center;
   margin: 50px auto;
-`;
-
-export const CardContent = styled.div`
-  position: relative;
-  width: 230px;
-  height: 350px;
-  margin: 10px;
-`;
-
-export const CardImg = styled.img`
-  width: 100%;
-  height: 100%;
-  backdrop-filter: blur(20px);
-  background: rgba(0, 0, 0, 0.8);
-  margin: 10px 0 20px 0;
-`;
-export const CardBottom = styled.div`
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  min-height: 20%;
-`;
-export const CardTitle = styled(Link)`
-  font-size: 20px;
-  color: #ffffff;
-  text-decoration: none;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 `;
