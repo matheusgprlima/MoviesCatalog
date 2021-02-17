@@ -41,9 +41,8 @@ export const SearchMovies = ({ movies, searchMovies }: SearchMoviesProps) => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (title.length > 0 && year.length > 0) searchMovies(title, year);
-    if (title.length > 0) return searchMovies(title, year);
-    if (year.length > 0 && title.length < 0) return;
+    if (title.length > 3 && year.length > 3) searchMovies(title, year);
+    if (title.length > 3 && year.length === 0) return searchMovies(title, year);
     return;
   };
 
