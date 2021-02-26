@@ -1,12 +1,10 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { DetailMovies } from "./pages/movie-details";
-import { SearchMovies } from "./pages/search-movies";
+import { LandingPage } from "./pages/landing-page";
 export function Router() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/" exact component={SearchMovies} />
-        <Route path="/movie-detail/:id" component={DetailMovies} />
+        <Route path="/" exact component={LandingPage} />
       </Switch>
     </BrowserRouter>
   );
