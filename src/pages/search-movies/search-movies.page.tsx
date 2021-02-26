@@ -18,6 +18,7 @@ type SearchMoviesProps = {
   searchMovies(searchTerm: string, year: string): void;
 };
 export const SearchMovies = ({ movies, searchMovies }: SearchMoviesProps) => {
+  console.log("ola");
   const [year, setYear] = useState("");
 
   const [title, setTitle] = useState("");
